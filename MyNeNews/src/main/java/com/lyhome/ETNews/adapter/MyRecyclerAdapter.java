@@ -50,7 +50,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder,  final int position) {
         holder.mTvTitle.setText(mNewsList.get(position).getTitle());
         holder.mTvDate.setText(mNewsList.get(position).getDate());
         ImageLoader.getInstance().displayImage(mNewsList.get(position).getImageurl(), holder.mIvPicture, MyApplication.getInstance().getOptionsWithRoundedCorner());
@@ -59,7 +59,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mOnItemClickListener.onItemClick(holder.itemView, position);
+                    mOnItemClickListener.onItemClick(holder.itemView, holder.getAdapterPosition());
                 }
             });
         }

@@ -75,57 +75,55 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case btn_login:
-                if (loginOrRegister == LoginOrRegister.LOGIN) {
-                    if (!isUserComplete()) return;
-                    mDialog.show(getFragmentManager(), "loading");
-                    UserProxy.login(getApplicationContext(), mUsername, mPassword, new UserProxy.LoginListener() {
-                        @Override
-                        public void onSuccess() {
-                            mDialog.dismiss();
-                            Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
-                            setResult(RESULT_OK);
-                            // Constant.isLogin = true;
-                            LoginActivity.this.finish();
-                        }
+        int id = v.getId();
+        if (id == btn_login) {
+            if (loginOrRegister == LoginOrRegister.LOGIN) {
+                if (!isUserComplete()) return;
+                mDialog.show(getFragmentManager(), "loading");
+                UserProxy.login(getApplicationContext(), mUsername, mPassword, new UserProxy.LoginListener() {
+                    @Override
+                    public void onSuccess() {
+                        mDialog.dismiss();
+                        Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                        setResult(RESULT_OK);
+                        // Constant.isLogin = true;
+                        LoginActivity.this.finish();
+                    }
 
-                        @Override
-                        public void onFailure(String msg) {
-                            mDialog.dismiss();
-                            Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                } else if (loginOrRegister == LoginOrRegister.REGISTER) {
-                    if (!isUserComplete()) return;
-                    mDialog.show(getFragmentManager(), "loading...");
-                    UserProxy.register(getApplicationContext(), mUsername, mPassword, new UserProxy.RegsiterListener() {
-                        @Override
-                        public void onSuccess() {
-                            mDialog.dismiss();
-                            Toast.makeText(LoginActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
-                            setResult(RESULT_OK);
-                            LoginActivity.this.finish();
-                        }
+                    @Override
+                    public void onFailure(String msg) {
+                        mDialog.dismiss();
+                        Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } else if (loginOrRegister == LoginOrRegister.REGISTER) {
+                if (!isUserComplete()) return;
+                mDialog.show(getFragmentManager(), "loading...");
+                UserProxy.register(getApplicationContext(), mUsername, mPassword, new UserProxy.RegsiterListener() {
+                    @Override
+                    public void onSuccess() {
+                        mDialog.dismiss();
+                        Toast.makeText(LoginActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                        setResult(RESULT_OK);
+                        LoginActivity.this.finish();
+                    }
 
-                        @Override
-                        public void onFailure(String msg) {
-                            mDialog.dismiss();
-                            Toast.makeText(LoginActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
-                break;
-            case btn_register:
-                if (loginOrRegister == LoginOrRegister.LOGIN) {
-                    loginOrRegister = LoginOrRegister.REGISTER;
-                    mBtnRegister.setText("登录");
-                } else if (loginOrRegister == LoginOrRegister.REGISTER) {
-                    loginOrRegister = LoginOrRegister.LOGIN;
-                    mBtnRegister.setText("注册帐号");
-                }
-                updateLayout(loginOrRegister);
-                break;
+                    @Override
+                    public void onFailure(String msg) {
+                        mDialog.dismiss();
+                        Toast.makeText(LoginActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        } else if (id == btn_register) {
+            if (loginOrRegister == LoginOrRegister.LOGIN) {
+                loginOrRegister = LoginOrRegister.REGISTER;
+                mBtnRegister.setText("登录");
+            } else if (loginOrRegister == LoginOrRegister.REGISTER) {
+                loginOrRegister = LoginOrRegister.LOGIN;
+                mBtnRegister.setText("注册帐号");
+            }
+            updateLayout(loginOrRegister);
         }
     }
 
