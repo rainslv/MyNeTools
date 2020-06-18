@@ -1,0 +1,3 @@
+include ':MyNeNews'
+include ':app'
+rootProject.name = "MyNeTools"
