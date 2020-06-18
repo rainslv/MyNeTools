@@ -21,6 +21,9 @@
         <activity
             android:name="com.lyhome.ETNews.MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="com.lyhome.ETWeather.activity.WeatherActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
 </manifest>

@@ -130,21 +130,17 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.switch_city:
-                Intent intent = new Intent(this, ChooseAreaActivity.class);
-                intent.putExtra("from_weather_activity", true);
-                startActivity(intent);
-                finish();
-                break;
-            case R.id.refresh_weather:
-                weatherDespText.setText("同步中");
-                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-                String districtName = preferences.getString("district_name", "");
-                queryWeather(districtName);
-                break;
-            default:
-                break;
+        if (view.getId() == R.id.switch_city) {
+            Intent intent = new Intent(this, ChooseAreaActivity.class);
+            intent.putExtra("from_weather_activity", true);
+            startActivity(intent);
+            finish();
+        }
+        if (view.getId() == R.id.refresh_weather) {
+            weatherDespText.setText("同步中");
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            String districtName = preferences.getString("district_name", "");
+            queryWeather(districtName);
         }
     }
 }
