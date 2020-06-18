@@ -133,19 +133,15 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.nav_tech:
-                        selectItem(0);
-                        break;
-                    case R.id.nav_joy:
-                        selectItem(1);
-                        break;
-                    case R.id.nav_settings:
-                        selectItem(2);
-                        break;
-                    case R.id.nav_personal:
-                        startActivity(new Intent(MainActivity.this, PersonalActivity.class));
-                        break;
+                int itemId = menuItem.getItemId();
+                if (itemId == R.id.nav_tech) {
+                    selectItem(0);
+                } else if (itemId == R.id.nav_joy) {
+                    selectItem(1);
+                } else if (itemId == R.id.nav_settings) {
+                    selectItem(2);
+                } else if (itemId == R.id.nav_personal) {
+                    startActivity(new Intent(MainActivity.this, PersonalActivity.class));
                 }
                 menuItem.setChecked(true);
                 mLayout.closeDrawers();
