@@ -19,12 +19,14 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    testImplementation 'junit:junit:4.12'
+    implementation 'androidx.drawerlayout:drawerlayout:1.0.0'
+    testImplementation 'junit:junit:4.13'
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
-    api files('libs/jsoup-1.8.3.jar')
+//    api files('libs/jsoup-1.8.3.jar')
+    implementation 'org.jsoup:jsoup:1.13.1'
     api files('libs/universal-image-loader-1.9.4.jar')
     api files('libs/volley.jar')
     api files('libs/BmobSDK_V3.4.4_0930.jar')

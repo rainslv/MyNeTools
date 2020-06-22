@@ -1,6 +1,6 @@
 package com.lyhome.ETNews.util;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import com.lyhome.ETNews.adapter.HeaderAndFooterRecyclerViewAdapter;

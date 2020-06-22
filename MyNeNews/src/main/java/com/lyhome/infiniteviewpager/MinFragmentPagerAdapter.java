@@ -1,9 +1,10 @@
 package com.lyhome.infiniteviewpager;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.view.View;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 /**
  * A FragmentPagerAdapter that can be used to achieve paging wrap-around when you have less than 4

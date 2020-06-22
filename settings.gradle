@@ -1,3 +1,4 @@
+include ':Toutiao'
 include ':MyNeWeather'
 include ':MyNeNews'
 include ':app'

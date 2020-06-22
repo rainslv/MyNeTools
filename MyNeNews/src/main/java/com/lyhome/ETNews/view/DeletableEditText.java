@@ -10,7 +10,8 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
-import android.widget.EditText;
+
+import androidx.appcompat.widget.AppCompatEditText;
 
 /**
  * @author kingofglory
@@ -19,7 +20,7 @@ import android.widget.EditText;
  * @date 2014-3-13
  * TODO
  */
-public class DeletableEditText extends android.support.v7.widget.AppCompatEditText {
+public class DeletableEditText extends AppCompatEditText {
 
     private Drawable mRightDrawable;
     private boolean isHasFocus;

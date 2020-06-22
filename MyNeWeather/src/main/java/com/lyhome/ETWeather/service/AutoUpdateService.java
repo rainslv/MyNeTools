@@ -8,7 +8,8 @@ import android.content.SharedPreferences;
 import android.os.IBinder;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 import com.lyhome.ETWeather.receiver.AutoUpdateReceiver;
 import com.lyhome.ETWeather.utility.HttpCallbackListener;
